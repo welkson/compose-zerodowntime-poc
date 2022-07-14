@@ -47,5 +47,6 @@ In curl-test shows v1 and v2 for some moments, in the end only v2 with zero down
 ### Links
 
 [1] https://www.tines.com/blog/simple-zero-downtime-deploys-with-nginx-and-docker-compose
+
 [2] https://linuxhandbook.com/update-docker-container-zero-downtime/
 
