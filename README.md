@@ -10,7 +10,7 @@ Based in [1] [2] posts.
 sudo echo "127.0.0.1	blog.domain.com" >> /etc/hosts
 ```
 
-### Config Proxy Network
+### Create Proxy Network
 
 ```bash
 docker network create net
@@ -43,6 +43,7 @@ Execute update script:
 ```
 
 In curl-test shows v1 and v2 for some moments, in the end only v2 with zero downtime.
+
 
 ### Links
 
