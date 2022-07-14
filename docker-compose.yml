@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+  echo:
+    image: hashicorp/http-echo
+    command: -text="v1"
+    environment:
+      - VIRTUAL_HOST=blog.domain.com
+      - url=http://blog.domain.com
+      - NODE_ENV=production
+    restart: always
+    networks:
+      - net
+
+networks:
+  net:
+    external: true
