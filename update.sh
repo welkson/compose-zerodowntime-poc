@@ -5,7 +5,7 @@ reload_nginx() {
 }
 
 zero_downtime_deploy() {  
-  service_name=echo
+  service_name=echo   # docker-compose service name here!
   old_container_id=$(docker ps -f name=$service_name -q | tail -n1)
 
   # bring a new container online, running new code  
@@ -18,7 +18,7 @@ zero_downtime_deploy() {
   new_container_id=$(docker ps -f name=$service_name -q | head -n1)
   new_container_ip=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $new_container_id)
   echo "<<< Debug -> new_container_id=$new_container_id / new_container_ip=$new_container_ip"
-  docker exec -it nginx-proxy bash -c "/usr/bin/curl --silent --include --retry-connrefused --retry 30 --retry-delay 1 --fail http://$new_container_ip:5678" || exit 1
+  docker exec -it nginx-proxy bash -c "/usr/bin/curl --silent --include --retry-connrefused --retry 30 --retry-delay 1 --fail http://$new_container_ip:5678" || exit 1    # service port here
   echo "Result: $?"
 
   # start routing requests to the new container (as well as the old)  
